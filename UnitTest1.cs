@@ -21,13 +21,13 @@ namespace Two_mails_Tests
         private readonly By _inputext= By.XPath("//div[@role='textbox']");
         private readonly By _sendmailbutton = By.XPath("//button[@title='Отправить']");
 
-        private readonly By _click = By.XPath("//body");
-        private readonly By _listlmail= By.XPath("//div[@class='text-ellipsis flex-grow b']");
+        //private readonly By _click = By.XPath("//body");
+        private readonly By _listlmail= By.XPath("//ul[@class='list list-alternate-background fill-absolute click mail-list']/li");
 
         private readonly By _findtitle = By.XPath("//div[@class='subject text-break selectable']");
-        private readonly By _findtext = By.XPath("");
+        private readonly By _findtext = By.XPath("//div[@class='selectable touch-callout break-word-links']/div");
 
-        private string[] mailArray = { "test-twomails-1@tutanota.com", "test-twomails-2@tutanota.com" };
+        private string[] mailArray = { "edison_bred_0999@tutanota.com", "tomas_darvin_12345@tutanota.com" };
         private string[] passwordArray = { "123456789qweasdzxc", "1234567890cxzdsaewq" };
        
         
@@ -82,7 +82,7 @@ namespace Two_mails_Tests
             var signin8 = driver.FindElement(_sendmailbutton);
             signin8.Click();
 
-            Thread.Sleep(1000);
+            Thread.Sleep(5000);
             driver.Quit();
         }
 
@@ -104,12 +104,18 @@ namespace Two_mails_Tests
             Thread.Sleep(5000);
             var signin5 = driver.FindElement(_listlmail);
             signin5.Click();
+
             Thread.Sleep(1000);
-            var actualTitle = driver.FindElement(_findtitle).Text;
+            string actualTitle = driver.FindElement(_findtitle).Text;
+            actualTitle = actualTitle.Replace(" ", string.Empty);
+            _title = _title.Replace(" ", string.Empty);
 
             Assert.AreEqual(_title, actualTitle, "Test fail, title is wrong");
+
             Thread.Sleep(1000);
-            var actualText = driver.FindElement(_findtext).Text;
+            string actualText = driver.FindElement(_findtext).Text;
+            actualText = actualText.Replace(" ", string.Empty);
+            _textmail = _textmail.Replace(" ", string.Empty);
 
             Assert.AreEqual(_textmail, actualText, "Test fail, text is wrong");
 
@@ -118,7 +124,8 @@ namespace Two_mails_Tests
         [TearDown]
         public void TearDown()
         {
-
+            Thread.Sleep(5000);
+            driver.Quit();
         }
     }
 }
