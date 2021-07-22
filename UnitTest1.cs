@@ -21,6 +21,7 @@ namespace Two_mails_Tests
         private readonly By _inputext= By.XPath("//div[@role='textbox']");
         private readonly By _sendmailbutton = By.XPath("//button[@title='Отправить']");
 
+        private readonly By _inputbox = By.XPath("//input[@type='checkbox']");
         //private readonly By _click = By.XPath("//body");
         private readonly By _listlmail= By.XPath("//ul[@class='list list-alternate-background fill-absolute click mail-list']/li");
 
@@ -62,6 +63,9 @@ namespace Two_mails_Tests
             var signin2 = driver.FindElement(_inputpassword);
             signin2.SendKeys(passwordArray[0]);
 
+            var signin9 = driver.FindElement(_inputbox);
+            signin9.Click();
+
             var signin3 = driver.FindElement(_enterbutton);
             signin3.Click();
 
@@ -97,6 +101,9 @@ namespace Two_mails_Tests
             var signin2 = driver.FindElement(_inputpassword);
             signin2.SendKeys(passwordArray[1]);
 
+            var signin9 = driver.FindElement(_inputbox);
+            signin9.Click();
+
             var signin3 = driver.FindElement(_enterbutton);
             signin3.Click();
 
@@ -124,7 +131,7 @@ namespace Two_mails_Tests
         [TearDown]
         public void TearDown()
         {
-            Thread.Sleep(5000);
+            Thread.Sleep(2000);
             driver.Quit();
         }
     }
