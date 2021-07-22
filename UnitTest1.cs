@@ -14,7 +14,7 @@ namespace Two_mails_Tests
 
         private readonly By _inputmail = By.XPath("//input[@type='email']");
         private readonly By _inputpassword = By.XPath("//input[@type='password']");
-        private readonly By _enterbutton= By.XPath("//button[@title='Войти']");
+        private readonly By _enterbutton= By.XPath("//div[@class='button-content flex items-center login plr-button justify-center']");
         private readonly By _newmailrbutton = By.XPath("//button[@title='Новое сообщение']");
         private readonly By _inputwhom = By.XPath("//input[@aria-label='Кому']");
         private readonly By _inputtitle = By.XPath("//input[@aria-label='Тема']");
