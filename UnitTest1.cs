@@ -20,9 +20,9 @@ namespace Two_mails_Tests
         private readonly By _inputtitle = By.XPath("//input[@aria-label='Тема']");
         private readonly By _inputext = By.XPath("//div[@role='textbox']");
         private readonly By _sendmailbutton = By.XPath("//button[@title='Отправить']");
-        private readonly By _exitbutton = By.XPath("//button[@title='Выход']");
+        private readonly By _exitbutton = By.XPath("//body/div[@id='root']/div[@id='mail']/div[1]/div[2]/div[1]/div[1]/drawer-menu[1]/div[1]/button[5]/div[1]/span[1]");
         private readonly By _morebutton = By.XPath("//small[@class='b text-ellipsis']");
-        private readonly By _anatherbutton = By.XPath("//button[@title='Другая учётная запись']");
+        private readonly By _anatherbutton = By.XPath("//body/div[@id='root']/div[@id='login-view']/div[2]/div[1]/div[4]/div[1]/div[1]/div[1]/button[1]");
 
         private readonly By _inputbox = By.XPath("//input[@type='checkbox']");
         //private readonly By _click = By.XPath("//body");
